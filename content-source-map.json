@@ -237,21 +237,6 @@
       "route": "/tech/tech-stack"
     },
     {
-      "sourceKey": "voice_search",
-      "file": "docs/lab/voice-search.md",
-      "route": "/lab/voice-search"
-    },
-    {
-      "sourceKey": "x_param",
-      "file": "docs/lab/param-passthrough.md",
-      "route": "/lab/param-passthrough"
-    },
-    {
-      "sourceKey": "ai_plan",
-      "file": "docs/lab/ai-invocation.md",
-      "route": "/lab/ai-invocation"
-    },
-    {
       "sourceKey": "2027",
       "file": "docs/release-notes/2027.md",
       "route": "/release-notes/2027"

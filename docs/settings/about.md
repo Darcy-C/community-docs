@@ -3,14 +3,13 @@ title: 关于 Quicker
 sidebar_position: 2
 ---
 
-展示版本号、实验室入口和**按键状态自检**，也是排查「为什么触发不生效」的第一站。
+展示版本号和**按键状态自检**，也是排查「为什么触发不生效」的第一站。
 
 <img class="qk-shot" src="/img/docs/settings/about/light.webp" data-dark="/img/docs/settings/about/dark.webp" alt="关于 Quicker 设置页" />
 
 ## 这个页面有什么
 
 - **版本号**：形如 `C2027.6.0`，反馈问题时请带上它。
-- **实验室**：语音搜索、酷调用（智能调用）两个实验功能的开关入口，详见 [实验室](/lab/)。
 - **按键状态**：Quicker 内部认为当前按下的键盘键、鼠标键（中键/X1/X2），以及 macOS 上的触控板手指数。
 - **致谢 / 隐私**：开源组件与隐私说明。
 

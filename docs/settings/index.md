@@ -11,7 +11,7 @@ sidebar_position: 1
 
 | 页面 | 作用 |
 | --- | --- |
-| [关于 Quicker](/settings/about) | 版本信息、实验室入口、按键状态自检 |
+| [关于 Quicker](/settings/about) | 版本信息、按键状态自检 |
 | [动作与场景管理](/settings/actions) | 管理场景（动作页）及其顺序 |
 | [外观](/settings/appearance) | 面板、轮盘的配色与尺寸，应用字体 |
 | [前台黑名单](/settings/blacklist) | 指定应用在前台时不再响应触发 |

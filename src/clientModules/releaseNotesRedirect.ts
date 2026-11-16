@@ -3,7 +3,7 @@
  * 发新版本时只需要改这里的 LATEST。
  */
 
-export const LATEST_RELEASE_PATH = '/release-notes/2027-6';
+export const LATEST_RELEASE_PATH = '/release-notes/2027-5';
 
 export function onRouteDidUpdate({location}: {location: {pathname: string}}): void {
   if (typeof window === 'undefined') return;

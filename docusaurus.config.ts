@@ -103,7 +103,7 @@ const config: Config = {
         {label: '安装', to: '/install'},
         {label: '设置页说明', to: '/settings'},
         {label: '组合动作', to: '/xaction/window-info'},
-        {label: '版本更新', to: '/release-notes/2027-6'},
+        {label: '版本更新', to: '/release-notes'},
         {label: 'Quicker 官网', href: 'https://getquicker.net'},
         {label: 'GitHub', href: repoUrl},
       ],

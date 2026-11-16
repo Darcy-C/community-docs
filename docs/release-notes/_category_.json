@@ -1,0 +1,8 @@
+{
+  "label": "版本更新",
+  "position": 9,
+  "link": {
+    "type": "doc",
+    "id": "release-notes/index"
+  }
+}

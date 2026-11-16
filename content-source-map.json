@@ -1,0 +1,260 @@
+{
+  "note": "历史导入时的页面对照表，仅用于追溯；内容已在 2027 年按代码重新校对。",
+  "pages": [
+    {
+      "sourceKey": "intro",
+      "file": "docs/index.md",
+      "route": "/"
+    },
+    {
+      "sourceKey": "how-to-install",
+      "file": "docs/install.md",
+      "route": "/install"
+    },
+    {
+      "sourceKey": "tgut5uf3kch88aoc",
+      "file": "docs/uninstall.md",
+      "route": "/uninstall"
+    },
+    {
+      "sourceKey": "vbawi6yswrxm8hai",
+      "file": "docs/about.md",
+      "route": "/about"
+    },
+    {
+      "sourceKey": "settings-common",
+      "file": "docs/settings/trigger.md",
+      "route": "/settings/trigger"
+    },
+    {
+      "sourceKey": "settings-left-button-plus",
+      "file": "docs/settings/left-button-plus.md",
+      "route": "/settings/left-button-plus"
+    },
+    {
+      "sourceKey": "settings-circle-menu",
+      "file": "docs/settings/circle-menu.md",
+      "route": "/settings/circle-menu"
+    },
+    {
+      "sourceKey": "settings-panel-shortcuts",
+      "file": "docs/settings/panel-shortcuts.md",
+      "route": "/settings/panel-shortcuts"
+    },
+    {
+      "sourceKey": "settings-text-commands",
+      "file": "docs/settings/text-commands.md",
+      "route": "/settings/text-commands"
+    },
+    {
+      "sourceKey": "settings-action-autorun",
+      "file": "docs/settings/action-autorun.md",
+      "route": "/settings/action-autorun"
+    },
+    {
+      "sourceKey": "settings-blacklist",
+      "file": "docs/settings/blacklist.md",
+      "route": "/settings/blacklist"
+    },
+    {
+      "sourceKey": "settings-maintenance-tool",
+      "file": "docs/settings/maintenance-tool.md",
+      "route": "/settings/maintenance-tool"
+    },
+    {
+      "sourceKey": "settings-about",
+      "file": "docs/settings/about.md",
+      "route": "/settings/about"
+    },
+    {
+      "sourceKey": "iy4osyfvcutbly26",
+      "file": "docs/xaction/window-info.md",
+      "route": "/xaction/window-info"
+    },
+    {
+      "sourceKey": "shortcuts",
+      "file": "docs/xaction/external-trigger.md",
+      "route": "/xaction/external-trigger"
+    },
+    {
+      "sourceKey": "eatw2vny5u3lqmps",
+      "file": "docs/xaction/screenshot.md",
+      "route": "/xaction/screenshot"
+    },
+    {
+      "sourceKey": "tmxt5ilvvuvctshg",
+      "file": "docs/xaction/qrcode.md",
+      "route": "/xaction/qrcode"
+    },
+    {
+      "sourceKey": "mgxbx3b3i92m7d1i",
+      "file": "docs/xaction/ocr.md",
+      "route": "/xaction/ocr"
+    },
+    {
+      "sourceKey": "knzlicdggbtpavee",
+      "file": "docs/xaction/step-editor.md",
+      "route": "/xaction/step-editor"
+    },
+    {
+      "sourceKey": "toni8p3xhaeizlat",
+      "file": "docs/xaction/interpolation.md",
+      "route": "/xaction/interpolation"
+    },
+    {
+      "sourceKey": "gsraga37yav0cv8g",
+      "file": "docs/xaction/expression.md",
+      "route": "/xaction/expression"
+    },
+    {
+      "sourceKey": "drpeh1wk4om0ett8",
+      "file": "docs/xaction/simulate-key.md",
+      "route": "/xaction/simulate-key"
+    },
+    {
+      "sourceKey": "kpk5m7322hu5fdq5",
+      "file": "docs/xaction/regex-extract.md",
+      "route": "/xaction/regex-extract"
+    },
+    {
+      "sourceKey": "ft4v6lihb5dybo9v",
+      "file": "docs/xaction/ime-control.md",
+      "route": "/xaction/ime-control"
+    },
+    {
+      "sourceKey": "hxg6k0g68dm8sm3r",
+      "file": "docs/xaction/key-operation.md",
+      "route": "/xaction/key-operation"
+    },
+    {
+      "sourceKey": "hdzn572928bft9q3",
+      "file": "docs/xaction/run-python.md",
+      "route": "/xaction/run-python"
+    },
+    {
+      "sourceKey": "zti0fgl9bxgmphdn",
+      "file": "docs/xaction/wait.md",
+      "route": "/xaction/wait"
+    },
+    {
+      "sourceKey": "lxo151udqp5w73l0",
+      "file": "docs/xaction/find-image.md",
+      "route": "/xaction/find-image"
+    },
+    {
+      "sourceKey": "nznbdtb4rcwqyr34",
+      "file": "docs/xaction/wait-key.md",
+      "route": "/xaction/wait-key"
+    },
+    {
+      "sourceKey": "ycxiyvh11uknp525",
+      "file": "docs/xaction/get-selected-text.md",
+      "route": "/xaction/get-selected-text"
+    },
+    {
+      "sourceKey": "nlldn8avx2alg11c",
+      "file": "docs/xaction/variable.md",
+      "route": "/xaction/variable"
+    },
+    {
+      "sourceKey": "apizkd10fogfuqpa",
+      "file": "docs/xaction/calculate.md",
+      "route": "/xaction/calculate"
+    },
+    {
+      "sourceKey": "pbn2hmdxwtug5p8p",
+      "file": "docs/xaction/run-or-stop-action.md",
+      "route": "/xaction/run-or-stop-action"
+    },
+    {
+      "sourceKey": "eupwhvsoqmklpniv",
+      "file": "docs/xaction/run-csharp.md",
+      "route": "/xaction/run-csharp"
+    },
+    {
+      "sourceKey": "cnlmysysktqq29z3",
+      "file": "docs/xaction/run-script.md",
+      "route": "/xaction/run-script"
+    },
+    {
+      "sourceKey": "xrxi9ha5ezcudlxc",
+      "file": "docs/xaction/run-or-open.md",
+      "route": "/xaction/run-or-open"
+    },
+    {
+      "sourceKey": "gq3gxgtn41pxp3w4",
+      "file": "docs/xaction/play-sound.md",
+      "route": "/xaction/play-sound"
+    },
+    {
+      "sourceKey": "fogn31vv3bgizvne",
+      "file": "docs/xaction/webview2.md",
+      "route": "/xaction/webview2"
+    },
+    {
+      "sourceKey": "zr21nm536l4d6xir",
+      "file": "docs/xaction/browser-control.md",
+      "route": "/xaction/browser-control"
+    },
+    {
+      "sourceKey": "grm63mct498g119i",
+      "file": "docs/xaction/macos-paths.md",
+      "route": "/xaction/macos-paths"
+    },
+    {
+      "sourceKey": "riu641b5ugltz9hg",
+      "file": "docs/xaction/module-progress.md",
+      "route": "/xaction/module-progress"
+    },
+    {
+      "sourceKey": "qihgbl6gcvhd9l3i",
+      "file": "docs/tech/cross-platform-proposal.md",
+      "route": "/tech/cross-platform-proposal"
+    },
+    {
+      "sourceKey": "fxfaf8qz50gigmwg",
+      "file": "docs/tech/callback-subprogram.md",
+      "route": "/tech/callback-subprogram"
+    },
+    {
+      "sourceKey": "xwgnqgctgtg6ly2z",
+      "file": "docs/tech/userdata-structure.md",
+      "route": "/tech/userdata-structure"
+    },
+    {
+      "sourceKey": "udriep5tvlf0yskx",
+      "file": "docs/tech/stop-action.md",
+      "route": "/tech/stop-action"
+    },
+    {
+      "sourceKey": "mfg93sa2w9ggbql0",
+      "file": "docs/tech/translation.md",
+      "route": "/tech/translation"
+    },
+    {
+      "sourceKey": "zwsgu0xb2ez45fq0",
+      "file": "docs/tech/tech-stack.md",
+      "route": "/tech/tech-stack"
+    },
+    {
+      "sourceKey": "voice_search",
+      "file": "docs/lab/voice-search.md",
+      "route": "/lab/voice-search"
+    },
+    {
+      "sourceKey": "x_param",
+      "file": "docs/lab/param-passthrough.md",
+      "route": "/lab/param-passthrough"
+    },
+    {
+      "sourceKey": "ai_plan",
+      "file": "docs/lab/ai-invocation.md",
+      "route": "/lab/ai-invocation"
+    },
+    {
+      "sourceKey": "2027",
+      "file": "docs/release-notes/2027.md",
+      "route": "/release-notes/2027"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  // 在 Markdown 里 cmd+v 粘贴剪贴板图片（截图）时，VS Code 原生支持自动落盘。
+  // docs/settings/panel.md -> static/img/docs/settings/panel/<时间戳>.png
+  // 插入的链接是相对于当前文档的路径，Docusaurus 会正常打包渲染。
+  "markdown.copyFiles.destination": {
+    "/docs/**/*.md": "${documentWorkspaceFolder}/static/img/${documentRelativeDirName}/${documentBaseName}/${unixTime}.${fileExtName}"
+  },
+  // 同名文件不覆盖，自动加 -1、-2 后缀（时间戳命名基本不会撞名）
+  "markdown.copyFiles.overwriteBehavior": "nameIncrementally"
+}

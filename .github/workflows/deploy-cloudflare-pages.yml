@@ -1,0 +1,44 @@
+# 可选：用 GitHub Actions 直接把构建产物发到 Cloudflare Pages。
+#
+# 默认不需要这个 workflow —— Cloudflare Pages 的 Git 集成会在 push 到 main 时
+# 自动执行 `npm run build` 并发布 build/ 目录（和 docs.getquicker.net 的做法一致）。
+#
+# 只有在你想自己控制发布流程（跳过 Pages 的构建、或发布预览分支）时才用它：
+#   1. 仓库 Settings → Secrets 里加上 CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID
+#   2. 仓库 Settings → Variables 里加上 CLOUDFLARE_PAGES_PROJECT（Pages 项目名）
+#   3. 在 Actions 页面手动运行本 workflow
+
+name: Deploy to Cloudflare Pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          DOCUSAURUS_URL: ${{ vars.DOCUSAURUS_URL }}
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy build --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }}

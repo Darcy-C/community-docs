@@ -27,3 +27,15 @@ npm run serve    # 本地预览 build/ 的结果
 | `npm run docs:emphasis:fix` | 自动修复上面的问题 |
 | `node tools/gen-module-status.mjs --write` | 从应用仓库重新生成「模块实现进度」表 |
 | `npm run clear` | 清理 `.docusaurus/` 缓存 |
+
+## 版本更新页
+
+`/release-notes` 是跳转页，会跳到 `docs/release-notes/` 下版本号最大的页面。
+版本页按 `年份-版本号.md` 命名（如 `2027-5.md`），新增后无需改代码：
+
+- 构建时 `plugins/latest-release` 扫描目录，按文件名里的数字比较大小，把最新页面地址注入页面的 `<meta name="qk-latest-release">`；
+- 前端 `src/clientModules/releaseNotesRedirect.ts` 读取这个地址完成跳转；
+- front matter 写 `draft: true` 的页面会被跳过，可以用来提前占位但暂不发布。
+
+还没发布的版本页放在 `docs/wip/`（侧边栏「开发中」，排在「版本更新」下面），不要放进 `docs/release-notes/`，
+否则会被当成已发布版本、并可能被 `/release-notes` 跳转选中。发布时把文件移动到 `docs/release-notes/` 即可。

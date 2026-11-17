@@ -36,6 +36,10 @@ const config: Config = {
     format: 'detect',
     mermaid: true,
   },
+  plugins: [
+    // 构建时扫描 docs/release-notes/，把最新版本页的地址注入页面（见 src/clientModules/releaseNotesRedirect.ts）
+    './plugins/latest-release/index.ts',
+  ],
   clientModules: [
     './src/clientModules/docImages.ts',
     // /release-notes/ 自动跳到最新版本页

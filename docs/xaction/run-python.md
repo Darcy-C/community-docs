@@ -43,5 +43,5 @@ quicker.context.SetVarValue("result", "hello")
 - 依赖 macOS 系统接口的库（`pyobjc` 等）在 Linux 上不可用。
 
 :::tip
-要跑**系统里的另一个 Python**（比如装了特定库的虚拟环境），用 [运行脚本](/xaction/run-script) 或 [运行或打开](/xaction/run-or-open)，不要用本步骤。
+要跑**系统里的另一个 Python**（比如装了特定库的虚拟环境），用 [运行或打开](/xaction/run-or-open) 调用它，不要用本步骤。
 :::

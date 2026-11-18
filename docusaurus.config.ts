@@ -105,7 +105,7 @@ const config: Config = {
       items: [
         {to: '/', label: '介绍', position: 'left'},
         {to: '/settings', label: '设置页说明', position: 'left'},
-        {to: '/xaction/window-info', label: '组合动作', position: 'left'},
+        {to: '/xaction/module-progress', label: '组合动作', position: 'left'},
         {to: '/tech/tech-stack', label: '技术话题', position: 'left'},
         {to: '/release-notes', label: '版本更新', position: 'left'},
         {type: 'search', position: 'right'},
@@ -118,7 +118,7 @@ const config: Config = {
       links: [
         {label: '安装', to: '/install'},
         {label: '设置页说明', to: '/settings'},
-        {label: '组合动作', to: '/xaction/window-info'},
+        {label: '组合动作', to: '/xaction/module-progress'},
         {label: '版本更新', to: '/release-notes'},
         {label: 'Quicker 官网', href: 'https://getquicker.net'},
         {label: 'GitHub', href: repoUrl},

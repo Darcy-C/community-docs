@@ -1,0 +1,93 @@
+{
+  // 常用任务：Cmd+Shift+B 直接跑默认的「检查」，Cmd+Shift+P -> Tasks: Run Task 选其它。
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "start",
+      "detail": "本地预览 http://localhost:2611",
+      "type": "npm",
+      "script": "start",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      // 让 VS Code 知道 dev server 什么时候算「起来了」，不然背景任务会一直转圈。
+      "problemMatcher": {
+        "owner": "docusaurus-start",
+        "pattern": [
+          {
+            "regexp": "^$"
+          }
+        ],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Starting the development server",
+          "endsPattern": "Docusaurus website is running at"
+        }
+      }
+    },
+    {
+      "label": "typecheck",
+      "detail": "tsc：检查 TypeScript / 配置文件的类型",
+      "type": "npm",
+      "script": "typecheck",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "build",
+      "detail": "生产构建：断链、MDX 语法错误都会直接失败",
+      "type": "npm",
+      "script": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "检查",
+      "detail": "typecheck + build（提交前跑这个）",
+      "dependsOrder": "sequence",
+      "dependsOn": ["typecheck", "build"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "检查（同 CI）",
+      "detail": "typecheck + 中文标点加粗检查 + build，和 GitHub Actions 一致",
+      "dependsOrder": "sequence",
+      "dependsOn": ["typecheck", "标点检查", "build"],
+      "problemMatcher": []
+    },
+    {
+      "label": "标点检查",
+      "detail": "检查中文标点导致 **加粗** 失效",
+      "type": "npm",
+      "script": "docs:emphasis:check",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "重装依赖",
+      "detail": "npm ci：按 package-lock.json 精确重装 node_modules",
+      "type": "shell",
+      "command": "npm ci",
+      "problemMatcher": []
+    }
+  ]
+}

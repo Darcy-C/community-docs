@@ -3,6 +3,13 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import type {PluginOptions as LocalSearchOptions} from '@easyops-cn/docusaurus-search-local';
 
+// 把 markdown 图片的 alt 文字渲染成图片下方的图注（见 plugins/image-caption/index.ts）
+import rehypeImageCaption from './plugins/image-caption';
+
+// 把 [card](./xxx.md) 这样的站内链接渲染成文档卡片（见 plugins/link-card/）
+import remarkLinkCard from './plugins/link-card';
+import rehypeLinkCard from './plugins/link-card/rehype';
+
 // 部署时可以不改代码，直接用环境变量覆盖站点地址。
 const siteUrl = process.env.DOCUSAURUS_URL || 'https://community-docs.example.com';
 const repoUrl = process.env.DOCUSAURUS_REPO || 'https://github.com/Darcy-C/community-docs';
@@ -44,6 +51,8 @@ const config: Config = {
     './src/clientModules/docImages.ts',
     // /release-notes/ 自动跳到最新版本页
     './src/clientModules/releaseNotesRedirect.ts',
+    // /install 自动跳到 macOS 或 Linux 的安装页
+    './src/clientModules/installRedirect.ts',
   ],
   themes: [
     '@docusaurus/theme-mermaid',
@@ -70,6 +79,9 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
           editUrl: repoUrl + '/tree/main/',
+          // 卡片要先拿到目标文档的相对路径（之后会被解析成路由），所以放在默认插件之前
+          beforeDefaultRemarkPlugins: [remarkLinkCard],
+          rehypePlugins: [rehypeLinkCard, rehypeImageCaption],
         },
         blog: false,
         theme: {

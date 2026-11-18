@@ -3,7 +3,12 @@
   // docs/settings/panel.md -> static/img/docs/settings/panel/<时间戳>.png
   // 插入的链接是相对于当前文档的路径，Docusaurus 会正常打包渲染。
   "markdown.copyFiles.destination": {
-    "/docs/**/*.md": "${documentWorkspaceFolder}/static/img/${documentRelativeDirName}/${documentBaseName}/${unixTime}.${fileExtName}"
+    // "/docs/**/*.md": "${documentWorkspaceFolder}/static/img/${documentRelativeDirName}/${documentBaseName}/${unixTime}.${fileExtName}"
+
+    // 由于我们经常在wip里写，写完以后又换地方，比如换到release-notes里，这样会
+    // 导致其实我们没有稳定的文件夹名字，所以我们统一保存在一个地方就好了，扁平
+    // 化存资源。
+    "/docs/**/*.md": "${documentWorkspaceFolder}/static/img/${unixTime}.${fileExtName}"
   },
   // 同名文件不覆盖，自动加 -1、-2 后缀（时间戳命名基本不会撞名）
   "markdown.copyFiles.overwriteBehavior": "nameIncrementally"

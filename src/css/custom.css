@@ -43,6 +43,8 @@
   --quicker-text-muted: #606874;
   --quicker-surface-subtle: #f6f7f9;
   --quicker-border-subtle: #e1e4e8;
+  /* 正文图片的描边：很淡，只用来把截图和背景分开 */
+  --qk-image-border: rgba(15, 23, 42, 0.1);
   --qk-scrollbar-thumb: rgba(0, 0, 0, 0.08);
   --qk-scrollbar-thumb-hover: rgba(0, 0, 0, 0.16);
   /* Match prism-react-renderer github / vsDark plain colors. */
@@ -79,6 +81,7 @@
   --ifm-background-surface-color: #202226;
   --quicker-surface-subtle: #202226;
   --quicker-border-subtle: #34383f;
+  --qk-image-border: rgba(255, 255, 255, 0.14);
   --qk-scrollbar-thumb: rgba(255, 255, 255, 0.1);
   --qk-scrollbar-thumb-hover: rgba(255, 255, 255, 0.18);
   --qk-code-bg: #1e1e1e;
@@ -927,23 +930,222 @@ html[data-qk-embed] [class*='docMainContainer'] {
   }
 }
 
-/* 文档图片：明暗主题切换、2x 尺寸校正、点击放大（逻辑见 src/clientModules/docImages.ts） */
+/* 文档图片：圆角 + 很淡的描边、明暗主题切换、2x 尺寸校正、点击放大（逻辑见 src/clientModules/docImages.ts） */
 .qk-shot,
 article img {
   max-width: 100%;
   height: auto;
-}
-
-.qk-shot {
-  border-radius: 8px;
-}
-
-[data-theme='light'] .qk-shot {
-  border: 1px solid var(--quicker-border-subtle);
+  border-radius: 12px;
+  border: 1px solid var(--qk-image-border);
 }
 
 article img {
   cursor: zoom-in;
+}
+
+/* 图片标题：markdown 图片的 alt 文字会显示成图片下方的图注（见 plugins/image-caption/index.ts） */
+article figure.qk-figure {
+  margin: 1.1rem 0;
+}
+
+article figure.qk-figure img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* 设置页里原文 HTML 的截图，单独成段，也一样居中 */
+article img.qk-shot {
+  display: block;
+  margin: 1.1rem auto;
+}
+
+/* 截图已经被 figure 包住时，外边距交给 figure，避免上下间距翻倍 */
+article figure.qk-figure img.qk-shot {
+  margin: 0 auto;
+}
+
+article .qk-figure__caption {
+  margin-top: 0.5rem;
+  color: var(--quicker-text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* 同一段里并排的多张图：整组居中，放不下时换行 */
+article .qk-figure-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 1.1rem 0;
+}
+
+article .qk-figure-row > figure.qk-figure {
+  margin: 0;
+  max-width: 100%;
+}
+
+/* 链接卡片：单独成段的 [card](./xxx.md) 会变成这里的结构（见 plugins/link-card/） */
+article .qk-link-card {
+  margin: 1rem 0;
+}
+
+article .qk-link-card__link {
+  display: block;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--quicker-border-subtle);
+  border-radius: 8px;
+  background: var(--quicker-surface-subtle);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+article .qk-link-card__link:hover {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-background-surface-color);
+  color: inherit;
+  text-decoration: none;
+}
+
+article .qk-link-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+article .qk-link-card__title {
+  color: var(--ifm-heading-color);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* 标题前的“打开”小图标（箭头朝右上），只是装饰，点哪里都是跳转 */
+article .qk-link-card__title::before {
+  content: '';
+  display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
+  margin-right: 0.4em;
+  vertical-align: -0.04em;
+  background-color: var(--ifm-color-primary);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7'/%3E%3Cpath d='M7 7h10v10'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7'/%3E%3Cpath d='M7 7h10v10'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+article .qk-link-card__desc {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--quicker-text-muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+/* ------------------------------------------------------------ 安装页装饰 */
+/* 只对 docs/install/ 下的两个平台页生效：页面正文顶部有一个 qk-install-deco 标记，
+   这里用 :has() 认出是哪个平台，把装饰铺满整页背景（固定，不挤在正文栏里）。 */
+.qk-install-deco {
+  display: none;
+}
+
+body:has(.qk-install-deco) {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* macOS：偏现代，蓝紫粉的柔光 */
+body:has(.qk-install-deco--mac) {
+  background-image:
+    radial-gradient(1100px 520px at 100% 0, rgba(10, 132, 255, 0.07), transparent 70%),
+    radial-gradient(760px 420px at 82% 0, rgba(191, 90, 242, 0.055), transparent 70%),
+    radial-gradient(560px 300px at 62% 0, rgba(255, 55, 95, 0.035), transparent 70%);
+}
+
+[data-theme='dark'] body:has(.qk-install-deco--mac) {
+  background-image:
+    radial-gradient(1100px 520px at 100% 0, rgba(10, 132, 255, 0.13), transparent 70%),
+    radial-gradient(760px 420px at 82% 0, rgba(191, 90, 242, 0.11), transparent 70%),
+    radial-gradient(560px 300px at 62% 0, rgba(255, 55, 95, 0.07), transparent 70%);
+}
+
+/* 标题前的平台图标：macOS 用苹果标（跟标题同色），Linux 用彩色企鹅，
+   用 flex 让图标和文字垂直居中对齐 */
+.theme-doc-markdown:has(> .qk-install-deco) header h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.theme-doc-markdown:has(> .qk-install-deco) header h1::before {
+  content: '';
+  flex: 0 0 auto;
+  width: 1.1em;
+  height: 1.1em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.theme-doc-markdown:has(> .qk-install-deco--mac) header h1::before {
+  background-color: currentColor;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+/* 企鹅（和 linux.quicker.space 用的是同一个图形，身体颜色调亮一点，暗色模式下也看得见） */
+.theme-doc-markdown:has(> .qk-install-deco--linux) header h1::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cellipse cx='23' cy='57' rx='9' ry='3.4' fill='%23f0a02a'/%3E%3Cellipse cx='41' cy='57' rx='9' ry='3.4' fill='%23f0a02a'/%3E%3Cpath d='M32 3c-7.5 0-12 5.8-12 13.5 0 4.6.7 8-3.2 13.6C13 35.6 10.5 41 10.5 45.5 10.5 52.5 20 57 32 57s21.5-4.5 21.5-11.5c0-4.5-2.5-9.9-6.3-15.4C43.3 24.5 44 21.1 44 16.5 44 8.8 39.5 3 32 3z' fill='%235b6472'/%3E%3Cellipse cx='32' cy='40' rx='12.5' ry='15' fill='%23ffffff'/%3E%3Cellipse cx='26' cy='16' rx='4.6' ry='5.2' fill='%23ffffff'/%3E%3Cellipse cx='38' cy='16' rx='4.6' ry='5.2' fill='%23ffffff'/%3E%3Ccircle cx='26.4' cy='17' r='2.1' fill='%2322252a'/%3E%3Ccircle cx='37.6' cy='17' r='2.1' fill='%2322252a'/%3E%3Cellipse cx='32' cy='23.5' rx='5.2' ry='3.4' fill='%23f0a02a'/%3E%3C/svg%3E");
+}
+
+/* Linux：偏极客，终端绿 + 等宽标题 + 顶部细网格 */
+body:has(.qk-install-deco--linux) {
+  background-image:
+    radial-gradient(1000px 480px at 100% 0, rgba(34, 197, 94, 0.07), transparent 68%),
+    radial-gradient(680px 380px at 84% 0, rgba(6, 182, 212, 0.06), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(15, 23, 42, 0.035) 0 1px, transparent 1px 28px);
+  background-size:
+    auto,
+    auto,
+    100% 190px;
+  background-position:
+    right top,
+    right top,
+    left top;
+  background-repeat: no-repeat;
+}
+
+[data-theme='dark'] body:has(.qk-install-deco--linux) {
+  background-image:
+    radial-gradient(1000px 480px at 100% 0, rgba(34, 197, 94, 0.12), transparent 68%),
+    radial-gradient(680px 380px at 84% 0, rgba(6, 182, 212, 0.1), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 28px);
+}
+
+.theme-doc-markdown:has(> .qk-install-deco--linux) > h2,
+.theme-doc-markdown:has(> .qk-install-deco--linux) > h3,
+.theme-doc-markdown:has(> .qk-install-deco--linux) > h4 {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
 }
 
 html.qk-zoom-locked {

@@ -3,9 +3,10 @@ title: 模块实现进度
 sidebar_position: 28
 ---
 
-社区版没有实现 Windows 版 Quicker 的全部模块。**未实现的模块会被界面直接隐藏**，不会出现在步骤选择器里。
+社区版没有实现 Windows 版 Quicker 的全部模块。**未实现的模块会被界面直接隐藏**，不会出现在步骤选择器里。本页仅展示了社区版的实现状态。
 
-本页由脚本生成：`node tools/gen-module-status.mjs --write`（数据来自 `ce_impl_map.json`、`module_defs.json`、`meta.py`、`linux/support.py` 与 `ce_module_defs/`）。
+<!-- 
+本页由脚本生成：`node tools/gen-module-status.mjs --write`（数据来自 `ce_impl_map.json`、`module_defs.json`、`meta.py`、`linux/support.py` 与 `ce_module_defs/`）。 -->
 
 **实现度** 指该模块已实现参数（输入 + 输出）的比例，「内置」表示由运行器直接实现，「社区版独有」表示这类模块在两平台上都可用。
 

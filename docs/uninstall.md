@@ -1,5 +1,5 @@
 ---
-title: "卸载“Quicker社区版”"
+title: "卸载「Quicker 社区版」"
 sidebar_position: 3
 ---
 

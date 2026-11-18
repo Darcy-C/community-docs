@@ -1,9 +1,12 @@
 ---
-title: "安装“Quicker社区版”"
-sidebar_position: 2
+title: "在 macOS 平台安装"
+sidebar_position: 1
+description: "在文档站下载对应芯片的安装包，解压后双击运行；首次打开前请先安装 .NET 7 运行时。"
 ---
 
-## 【安装前提醒】macOS版不支持Windows动作
+<div class="qk-install-deco qk-install-deco--mac" aria-hidden="true"></div>
+
+## 【安装前提醒】社区版不支持 Windows 端动作
 
 
 ### 【第一步】在本文档站中找到“版本更新”文件夹
@@ -45,7 +48,7 @@ Quicker 社区版 和 Quicker Windows 版一样，支持使用 C# 表达式，�
 :::
 
 ### 【第四步】为“Quicker社区”App添加必要的权限
-+ 前往“系统设置”，为 App 添加 “**辅助功能**” 权限。这是由于 “Quicker社区版” 使用 “双击 Command 键” 等方式呼出面板。
++ 前往“系统设置”，为 App 添加 “**辅助功能**” 权限。这是由于 “Quicker 社区版” 使用 “双击 Command 键” 等方式呼出面板。
 
 :::note[小贴士]
 在 macOS 27 中，该权限被叫做「设备控制和数据访问」。
@@ -59,21 +62,21 @@ Quicker 社区版 和 Quicker Windows 版一样，支持使用 C# 表达式，�
 ![操作示意图](/img/docs/install/1708702557436-5764b4b1-d9ab-45fd-b7e0-77f97e2c99e2.png)
 
 ### 【第五步】打开程序
-**激活与取消激活“Quicker社区版”**
+**激活与取消激活“Quicker 社区版”**
 
-您可以使用 “双击Command键” 的方式激活 “Quicker社区版”，在其他软件空白处点击一下让“Quicker社区版”失去焦点即可让“Quicker社区版”的面板消失。
+您可以使用 “双击Command键” 的方式激活 “Quicker 社区版”，在其他软件空白处点击一下让“Quicker 社区版”失去焦点即可让“Quicker 社区版”的面板消失。
 
 ## 常见问题
 ### 如果不安装“.NET运行时”会怎么样？
 将无法打开软件, .NET 运行时在 “Quicker 社区版” 软件起到的作用是运行动作内的 “C#表达式” (也就是 $= 开头的表达式), 目前软件会在开始运行时载入表达式编译器, 所以必须先行安装, 才能正确启动.
 
 ### 如果我不给软件“辅助控制”权限会怎么样？
-在第一次启动“Quicker社区版”时，由系统提示你软件需要该权限（仅会提示一次），随后报错退出软件。
+在第一次启动“Quicker 社区版”时，由系统提示你软件需要该权限（仅会提示一次），随后报错退出软件。
 
 ### 如果我不安装“.NET 7”而安装最新的版本会怎么样？
 无法打开软件。
 
-请注意，正常来说，对于一个要求“.NET 运行时”的软件，不同版本并没有什么太大的不同，但“Quicker社区版”需要“.NET 运行时”配合内部随带的“[.NET Core 7 reference assemblies](https://www.nuget.org/packages/Microsoft.NETCore.App.Ref/7.0.16)”引用文件来编译表达式，而这些“引用”文件是版本特定的。
+请注意，正常来说，对于一个要求“.NET 运行时”的软件，不同版本并没有什么太大的不同，但“Quicker 社区版”需要“.NET 运行时”配合内部随带的“[.NET Core 7 reference assemblies](https://www.nuget.org/packages/Microsoft.NETCore.App.Ref/7.0.16)”引用文件来编译表达式，而这些“引用”文件是版本特定的。
 
 + 如果你不小心安装了其他版本的 .NET，请删除下面的文件夹，然后重新安装 .NET 7 运行时
 

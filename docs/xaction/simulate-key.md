@@ -27,9 +27,3 @@ sidebar_position: 9
 - macOS 与 Linux 都支持。
 - **存的虚拟键码是 macOS 的**；Linux 上会自动翻译成 X11 keysym，所以动作可以跨平台用，但手写 vk 数字不可移植。
 - 需要**长按**修饰键、按下不松开时，用 [按键操作](/xaction/key-operation)，本模块做不到。
-
-:::warning
-
-合成的按键事件一般不会触发「全局热键」类监听（包括 Quicker 自己的触发键），这是系统层面的限制，不是模块的问题。
-
-:::

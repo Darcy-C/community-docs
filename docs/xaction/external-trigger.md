@@ -5,7 +5,9 @@ sidebar_position: 2
 
 通过 `quicker:` 网址从外部（浏览器、脚本、快捷指令、其他动作）触发社区版的某个功能。
 
-**平台：仅 macOS**。协议是在 macOS 应用包里注册的；Linux 版没有注册 `x-scheme-handler`，链接不会拉起应用。
+**平台：仅 macOS**。
+
+<!-- 协议是在 macOS 应用包里注册的；Linux 版没有注册 `x-scheme-handler`，链接不会拉起应用。 -->
 
 ## 支持的协议
 
@@ -34,6 +36,5 @@ open "quicker:showmessage:info:hello%20world"
 ## 注意
 
 - `runaction` 的触发方式会被标记为「外部触发」，方便动作里区分来源。
-- `previewaction` 的参数是**分享码**（`getquicker.net/Sharedaction?code=...` 里的 code），不是动作库 ID。
+- `previewaction` 的参数是**动作库的ID**（`getquicker.net/Sharedaction?code=...` 里的 code）。
 - 未知的 `quicker:` 子命令会被**静默忽略**，不会有任何提示。
-- 通过「运行或打开」模块打开同样的 URL 也能达到类似效果，但不会走外部触发的标记。

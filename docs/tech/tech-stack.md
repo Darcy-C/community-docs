@@ -31,7 +31,6 @@ Qt 从 6.7 起放弃了 macOS 11，而项目要支持 **macOS 11+**，所以 PyS
 | 文件监听 | `watchdog` |
 | 代码编辑 / 补全 | `tree-sitter`、`jedi`、Monaco（独立窗口） |
 | 图像 / OCR | OpenCV + 系统 Vision（macOS） |
-| AI 规划 | `zhipuai`（酷调用） |
 | Python 表达式 | `pydantic-monty`（`@=` 的受限解释器） |
 
 ## 平台矩阵

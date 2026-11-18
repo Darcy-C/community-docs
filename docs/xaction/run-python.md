@@ -12,7 +12,7 @@ sidebar_position: 13
 | 步骤 | 状态 | 说明 |
 | --- | --- | --- |
 | 运行 Python 片段 | **推荐** | 动作变量直接变成 Python 变量，改完自动写回 |
-| 运行 Python 代码 | 已过期 | 旧步骤，只能通过 `quicker.context` 读写变量，仅为兼容旧动作保留 |
+| 运行 Python 代码 | 已过期（模块选择列表内不再显示了） | 旧步骤，只能通过 `quicker.context` 读写变量，仅为兼容旧动作保留 |
 
 ## 「运行 Python 片段」怎么用
 
@@ -37,7 +37,7 @@ quicker.context.SetVarValue("result", "hello")
 
 ## 环境与限制
 
-- 与主程序同一个进程、同一个解释器：**没有沙箱**，可以 `import` 应用自带的依赖（`requests`、`orjson`、`opencv`、`numpy` 等），也能读写本地文件。
+- 与主程序同一个进程、同一个解释器：**没有沙箱**，可以 `import` 应用自带的依赖（`requests`、`orjson` 等），也能读写本地文件。
 - 应用内是 Python 3.10，第三方库版本与应用一致。
 - 异常会直接让步骤失败，错误信息形如 `脚本报错内容: ...`。
 - 依赖 macOS 系统接口的库（`pyobjc` 等）在 Linux 上不可用。

@@ -30,12 +30,3 @@ Chrome、Thorium、Edge、Safari、Arc、Vivaldi。
 ## 注意
 
 - 元素读取需要浏览器开启「允许 JavaScript 来自 Apple 事件」（Chrome：视图 → 开发者 → 允许 Apple 事件中的 JavaScript）。
-- 「自动」会挑当前最前面的受支持浏览器，多浏览器同时打开时建议显式指定。
-- 页面里是被脚本注入的上下文，SPA 切换路由后要重新取元素。
-- 需要登录态时这是唯一好用的途径——它用的是你自己的浏览器配置。
-
-:::tip
-
-只读一次数据、不想让浏览器窗口跳来跳去，可以用 [WebView2 浏览器窗口](/xaction/webview2)（无登录态）或「HTTP 请求」模块。
-
-:::

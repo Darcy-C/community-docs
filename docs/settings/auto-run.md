@@ -3,7 +3,7 @@ title: 自动运行动作
 sidebar_position: 11
 ---
 
-按 **cron 表达式**定时运行动作，不需要任何手动触发。适合定时备份、定时提醒、定时刷新页面之类的场景。
+使用 **cron 表达式** 定时运行动作，不需要任何手动触发。适合定时备份、定时提醒、定时刷新页面之类的场景。
 
 <img class="qk-shot" src="/img/docs/settings/auto-run/light.webp" data-dark="/img/docs/settings/auto-run/dark.webp" alt="自动运行动作" />
 
@@ -30,6 +30,6 @@ sidebar_position: 11
 
 :::tip
 
-需要「开机/唤醒后立即执行」的效果，用 [事件触发](/settings/event-triggers) 而不是定时任务。
+需要「唤醒后立即执行」的效果，用 [事件触发](/settings/event-triggers) 而不是定时任务。
 
 :::

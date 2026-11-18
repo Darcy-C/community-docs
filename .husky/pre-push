@@ -1,0 +1,22 @@
+# 推送前的本地门禁：类型检查和构建不通过就不允许 push。
+#
+# 想临时跳过（比如只改了一个错别字、急着推送）：git push --no-verify
+#
+# 这个文件由 husky 在 `npm install` / `npm ci` 时自动挂到 .git/hooks/pre-push，
+# 不需要手动装 hook。构建大约需要 40 秒，`build/` 是生成物，不进仓库。
+
+echo "==> 推送前检查：typecheck"
+npm run typecheck || {
+  echo ""
+  echo "✗ typecheck 未通过，已取消推送（确认没问题时可用 git push --no-verify 跳过）"
+  exit 1
+}
+
+echo "==> 推送前检查：build"
+npm run build || {
+  echo ""
+  echo "✗ 构建未通过（常见原因：站内断链、MDX 语法错误、front matter 写错），已取消推送"
+  exit 1
+}
+
+echo "✓ 检查通过，继续推送"

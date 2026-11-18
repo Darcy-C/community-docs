@@ -20,6 +20,10 @@ description: "在文档站下载对应芯片的安装包，解压后双击运行
 
 ![](/img/docs/install/1708249914672-8d83bb84-4c4a-4c30-88a8-19f46647ac36.png)
 
+:::note
+您下载到的 `.aar` 是一种苹果专用的压缩归档格式，用法和 `.zip` 一样，双击即可解压。
+:::
+
 ### 【第二步】 双击解压即可下载得到下图中的“应用程序”，请先不要打开。
 <img src="/img/docs/install/1708249968884-125c9dba-4aef-4c12-8423-39186de72493.png" alt="Quicker App Logo on Desktop" width="89px" />
 

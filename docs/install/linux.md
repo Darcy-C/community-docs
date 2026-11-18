@@ -41,6 +41,11 @@ description: "Linux (X11) 版以 AppImage 分发：确认架构和 GLIBC 版本�
 
 在最新版本页的「下载」板块里，按本机系统和架构选择 `x86_64` 或 `arm64` 的安装包，下载得到一个 `.AppImage` 文件。
 
+:::note
+您下载到的 `.AppImage` 是 Linux 平台中的一种可执行文件。
+:::
+
+
 ## 安装
 
 Linux 版以 AppImage 格式分发：不需要安装，给文件加上执行权限就能运行。

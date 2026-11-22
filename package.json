@@ -39,6 +39,7 @@
   },
   "browserslist": {
     "production": [
+      "chrome >= 64",
       ">0.5%",
       "not dead",
       "not op_mini all"

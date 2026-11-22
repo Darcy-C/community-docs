@@ -14,6 +14,10 @@ import rehypeLinkCard from './plugins/link-card/rehype';
 const siteUrl = process.env.DOCUSAURUS_URL || 'https://community-docs.example.com';
 const repoUrl = process.env.DOCUSAURUS_REPO || 'https://github.com/Darcy-C/community-docs';
 
+// 旧浏览器 polyfill（页面和搜索用的 Web Worker 共用同一个地址，只在这里定义一次）
+const polyfillUrl =
+  'https://polyfill.alicdn.com/v3/polyfill.min.js?features=globalThis%2Ces2019%2CPromise.allSettled';
+
 const config: Config = {
   title: 'Quicker 社区版 文档',
   tagline: 'Quicker Community Edition 使用说明与开发参考',
@@ -30,6 +34,16 @@ const config: Config = {
   future: {
     v4: true,
   },
+
+  // 旧浏览器兼容：先让 Worker 走同源中转（Worker 加载不到页面上的 polyfill），
+  // 再加载官方 polyfill（globalThis、ES2019、Promise.allSettled）。
+  scripts: [
+    {
+      src: '/js/worker-compat.js?polyfill=' + encodeURIComponent(polyfillUrl),
+      defer: true,
+    },
+    {src: polyfillUrl, defer: true},
+  ],
 
   url: siteUrl,
   baseUrl: '/',
